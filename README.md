@@ -1,16 +1,34 @@
-# vadim_artem_app
+# Daemon Rooms (1.0)
 
-Test application with Vadim
+Best mobile horror game ever...
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Clone the repository
 
-A few resources to get you started if this is your first Flutter project:
+2. Run "flutter packages get" in root folder
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+3. Unity
+  - Open unity project with version (2021.3.6f1 of Unity)
+  - Click File => build settings, and check that android is selected. Then check player settings (
+    No vulcan in Graphics APIs but enabled OpenGLES2
+    Scripting background IL2CPP
+    Target architecures: ARMv7 + ARM64
+  )
+  - Click "flutter" => Export Android
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+4. In android/grable.properties
+```
+  android.useAndroidX=true
+  android.enableJetifier=true
+  android.bundle.enableUncompressedNativeLibs=false
+  org.gradle.jvmargs=-Xmx4608M
+```
+
+5. In android/local.properties add line to your ndk
+```
+  ndk.dir=C:\\Program Files\\Unity\\Hub\\Editor\\2021.3.6f1\\Editor\\Data\\PlaybackEngines\\AndroidPlayer\\NDK
+```
+
+
+
