@@ -39,99 +39,162 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     const borderSize = 1.0;
     const itemsCount = 5.0;
-    var width = (MediaQuery.of(context).size.width - (itemsCount - 1) * borderSize) / 5;
+    var width =
+        (MediaQuery.of(context).size.width - (itemsCount - 1) * borderSize) / 5;
     var height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: Row(
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(
-              border: Border(
-                right: BorderSide(
-                  color: Color.fromARGB(255, 97, 97, 97),
-                  width: borderSize,
+              decoration: BoxDecoration(
+                border: Border(
+                  right: BorderSide(
+                    color: Color.fromARGB(255, 97, 97, 97),
+                    width: borderSize,
+                  ),
                 ),
-              ),
-            ),
-            child: new GestureDetector(
-              onTap: () {}, // Image tapped
-              child: Image.asset(
-                'assets/images/game_1.jpg',
-                fit: BoxFit.cover, // Fixes border issues
-                width: width,
-                height: height,
-              ),
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              border: Border(
-                right: BorderSide(
-                  color: Color.fromARGB(255, 97, 97, 97),
-                  width: borderSize,
+                image: DecorationImage(
+                  image: new AssetImage('assets/images/game_1.jpg'),
+                  fit: BoxFit.cover,
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.red,
+                  ),
+                  BoxShadow(
+                    color: Colors.red,
+                    spreadRadius: -12.0,
+                    blurRadius: 12.0,
+                  ),
+                ],
               ),
-            ),
-            child: new GestureDetector(
-              onTap: () {}, // Image tapped
-              child: Image.asset(
-                'assets/images/game_2.jpg',
-                fit: BoxFit.cover, // Fixes border issues
+              child: Container(
                 width: width,
                 height: height,
-              ),
-            ),
-          ),
+              )),
           Container(
-            decoration: BoxDecoration(
-              border: Border(
-                right: BorderSide(
-                  color: Color.fromARGB(255, 97, 97, 97),
-                  width: borderSize,
+              decoration: BoxDecoration(
+                  border: Border(
+                    right: BorderSide(
+                      color: Color.fromARGB(255, 97, 97, 97),
+                      width: borderSize,
+                    ),
+                  ),
+                  image: DecorationImage(
+                    image: new AssetImage('assets/images/game_2.jpg'),
+                    fit: BoxFit.cover,
+                    colorFilter:
+                        ColorFilter.mode(Colors.grey, BlendMode.saturation),
+                  )),
+              child: Container(
+                width: width,
+                height: height,
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Icon(
+                          Icons.lock_outline_rounded,
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          size: 30.0,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ),
-            child: new GestureDetector(
-              onTap: () {}, // Image tapped
-              child: Image.asset(
-                'assets/images/game_3.jpg',
-                fit: BoxFit.cover, // Fixes border issues
+              )),
+          Container(
+              decoration: BoxDecoration(
+                  border: Border(
+                    right: BorderSide(
+                      color: Color.fromARGB(255, 97, 97, 97),
+                      width: borderSize,
+                    ),
+                  ),
+                  image: DecorationImage(
+                    image: new AssetImage('assets/images/game_3.jpg'),
+                    fit: BoxFit.cover,
+                    colorFilter:
+                        ColorFilter.mode(Colors.grey, BlendMode.saturation),
+                  )),
+              child: Container(
                 width: width,
                 height: height,
-              ),
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              border: Border(
-                right: BorderSide(
-                  color: Color.fromARGB(255, 97, 97, 97),
-                  width: borderSize,
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Icon(
+                          Icons.lock_outline_rounded,
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          size: 30.0,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ),
-            child: new GestureDetector(
-              onTap: () {}, // Image tapped
-              child: Image.asset(
-                'assets/images/game_4.jpg',
-                fit: BoxFit.cover, // Fixes border issues
-                width: width,
-                height: height,
-              ),
-            ),
-          ),
+              )),
           Container(
-            child: new GestureDetector(
-              onTap: () {}, // Image tapped
-              child: Image.asset(
-                'assets/images/game_5.jpg',
-                fit: BoxFit.cover, // Fixes border issues
+              decoration: BoxDecoration(
+                  border: Border(
+                    right: BorderSide(
+                      color: Color.fromARGB(255, 97, 97, 97),
+                      width: borderSize,
+                    ),
+                  ),
+                  image: DecorationImage(
+                    image: new AssetImage('assets/images/game_4.jpg'),
+                    fit: BoxFit.cover,
+                    colorFilter:
+                        ColorFilter.mode(Colors.grey, BlendMode.saturation),
+                  )),
+              child: Container(
                 width: width,
                 height: height,
-              ),
-            ),
-          ),
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Icon(
+                          Icons.lock_outline_rounded,
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          size: 30.0,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )),
+          Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                image: new AssetImage('assets/images/game_5.jpg'),
+                fit: BoxFit.cover,
+                colorFilter:
+                    ColorFilter.mode(Colors.grey, BlendMode.saturation),
+              )),
+              child: Container(
+                width: width,
+                height: height,
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Icon(
+                          Icons.lock_outline_rounded,
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          size: 30.0,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )),
         ],
       ),
     );
