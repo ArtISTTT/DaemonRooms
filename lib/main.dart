@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vadim_artem_app/unityPage.dart';
 import 'package:flutter/services.dart';
 
 void main() {
@@ -38,21 +37,128 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    const borderSize = 1.0;
+    const itemsCount = 5.0;
+    var width = (MediaQuery.of(context).size.width - (itemsCount - 1) * borderSize) / 5;
+    var height = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            MaterialButton(
-              child: Text('Go 3D'),
-              minWidth: double.infinity,
-              onPressed: () async {
-                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => UnityTestingWrapper() ));
-              },
-            )
-          ],
-        ),
+      body: Row(
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                right: BorderSide(
+                  color: Color.fromARGB(255, 97, 97, 97),
+                  width: borderSize,
+                ),
+              ),
+            ),
+            child: new GestureDetector(
+              onTap: () {}, // Image tapped
+              child: Image.asset(
+                'assets/images/game_1.jpg',
+                fit: BoxFit.cover, // Fixes border issues
+                width: width,
+                height: height,
+              ),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                right: BorderSide(
+                  color: Color.fromARGB(255, 97, 97, 97),
+                  width: borderSize,
+                ),
+              ),
+            ),
+            child: new GestureDetector(
+              onTap: () {}, // Image tapped
+              child: Image.asset(
+                'assets/images/game_2.jpg',
+                fit: BoxFit.cover, // Fixes border issues
+                width: width,
+                height: height,
+              ),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                right: BorderSide(
+                  color: Color.fromARGB(255, 97, 97, 97),
+                  width: borderSize,
+                ),
+              ),
+            ),
+            child: new GestureDetector(
+              onTap: () {}, // Image tapped
+              child: Image.asset(
+                'assets/images/game_3.jpg',
+                fit: BoxFit.cover, // Fixes border issues
+                width: width,
+                height: height,
+              ),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                right: BorderSide(
+                  color: Color.fromARGB(255, 97, 97, 97),
+                  width: borderSize,
+                ),
+              ),
+            ),
+            child: new GestureDetector(
+              onTap: () {}, // Image tapped
+              child: Image.asset(
+                'assets/images/game_4.jpg',
+                fit: BoxFit.cover, // Fixes border issues
+                width: width,
+                height: height,
+              ),
+            ),
+          ),
+          Container(
+            child: new GestureDetector(
+              onTap: () {}, // Image tapped
+              child: Image.asset(
+                'assets/images/game_5.jpg',
+                fit: BoxFit.cover, // Fixes border issues
+                width: width,
+                height: height,
+              ),
+            ),
+          ),
+        ],
       ),
     );
+  }
+}
+
+class RPSCustomPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint0 = Paint()
+      ..color = const Color.fromARGB(255, 178, 178, 178)
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 1;
+
+    Path path0 = Path();
+    path0.moveTo(0, size.height);
+    path0.lineTo(0, 0);
+    path0.lineTo(size.width, 0);
+    path0.lineTo(size.width * 0.5, size.height);
+    path0.lineTo(size.width * -0.5, size.height);
+    path0.close();
+
+    canvas.drawPath(path0, paint0);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
   }
 }
