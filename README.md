@@ -9,13 +9,13 @@ Best mobile horror game ever...
 2. Run "flutter packages get" in root folder
 
 3. Unity
-  3.1 Open unity project with version (2021.3.6f1 of Unity)
-  3.2 Click File => build settings, and check that android is selected. Then check player settings (
+  - Open unity project with version (2021.3.6f1 of Unity)
+  - Click File => build settings, and check that android is selected. Then check player settings (
     No vulcan in Graphics APIs but enabled OpenGLES2
     Scripting background IL2CPP
     Target architecures: ARMv7 + ARM64
   )
-  3.3 Click "flutter" => Export Android
+  - Click "flutter" => Export Android
 
 4. In android/grable.properties
 ```
