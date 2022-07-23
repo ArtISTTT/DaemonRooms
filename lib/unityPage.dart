@@ -1,15 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_unity_widget/flutter_unity_widget.dart';
+import 'package:flutter/services.dart';
 
-class UnityTestingWrapper extends StatefulWidget
-{
+class UnityTestingWrapper extends StatefulWidget {
   UnityTestingState createState() => UnityTestingState();
 }
 
-class UnityTestingState extends State<UnityTestingWrapper>
-{
-
+class UnityTestingState extends State<UnityTestingWrapper> {
   late UnityWidgetController _unityWidgetController;
   double _sliderValue = 0.0;
 
@@ -20,9 +17,13 @@ class UnityTestingState extends State<UnityTestingWrapper>
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
+
     return MaterialApp(
       home: Scaffold(
         body: Card(
@@ -68,6 +69,7 @@ class UnityTestingState extends State<UnityTestingWrapper>
       ),
     );
   }
+
   void onUnityCreated(controller) {
     this._unityWidgetController = controller;
   }
