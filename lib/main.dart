@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:vadim_artem_app/unityPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,6 +36,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void onGamePressed() async {
+    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => UnityTestingWrapper() ));
+  }
+
   @override
   Widget build(BuildContext context) {
     const borderSize = 1.0;
@@ -48,6 +53,13 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           Container(
               decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.red,
+                      blurRadius: 10,
+                      spreadRadius: 15,
+                      offset: Offset(0, 7)),
+                ],
                 border: Border(
                   right: BorderSide(
                     color: Color.fromARGB(255, 97, 97, 97),
@@ -58,21 +70,43 @@ class _MyHomePageState extends State<MyHomePage> {
                   image: new AssetImage('assets/images/game_1.jpg'),
                   fit: BoxFit.cover,
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.red,
-                  ),
-                  BoxShadow(
-                    color: Colors.red,
-                    spreadRadius: -12.0,
-                    blurRadius: 12.0,
-                  ),
-                ],
               ),
-              child: Container(
-                width: width,
-                height: height,
-              )),
+              child: new GestureDetector(
+                onTap: onGamePressed,
+                child: Container(
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.red,
+                            offset: Offset(4.0, 4.0),
+                            blurRadius: 15.0,
+                            spreadRadius: 1.0),
+                        BoxShadow(
+                            color: Colors.white,
+                            offset: Offset(-4.0, -4.0),
+                            blurRadius: 15.0,
+                            spreadRadius: 1.0),
+                      ],
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Colors.red,
+                            Colors.red,
+                            Colors.red,
+                            Colors.red,
+                          ],
+                          stops: [
+                            0.1,
+                            0.3,
+                            0.8,
+                            1
+                          ])),
+                  width: width,
+                  height: height,
+                )
+              ),
+          ),
           Container(
               decoration: BoxDecoration(
                   border: Border(
@@ -201,27 +235,3 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class RPSCustomPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint0 = Paint()
-      ..color = const Color.fromARGB(255, 178, 178, 178)
-      ..style = PaintingStyle.fill
-      ..strokeWidth = 1;
-
-    Path path0 = Path();
-    path0.moveTo(0, size.height);
-    path0.lineTo(0, 0);
-    path0.lineTo(size.width, 0);
-    path0.lineTo(size.width * 0.5, size.height);
-    path0.lineTo(size.width * -0.5, size.height);
-    path0.close();
-
-    canvas.drawPath(path0, paint0);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
-  }
-}

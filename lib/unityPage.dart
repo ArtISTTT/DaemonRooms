@@ -36,7 +36,7 @@ class UnityTestingState extends State<UnityTestingWrapper> {
               UnityWidget(
                 onUnityCreated: onUnityCreated,
               ),
-              Positioned(
+              /* Positioned(
                 bottom: 20,
                 left: 20,
                 right: 20,
@@ -62,7 +62,7 @@ class UnityTestingState extends State<UnityTestingWrapper> {
                     ],
                   ),
                 ),
-              ),
+              ), */
             ],
           ),
         ),
