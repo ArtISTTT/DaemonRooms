@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_unity_widget/flutter_unity_widget.dart';
 import 'package:flutter/services.dart';
+import 'package:vadim_artem_app/main.dart';
 
 class UnityTestingWrapper extends StatefulWidget {
   UnityTestingState createState() => UnityTestingState();
@@ -35,34 +36,17 @@ class UnityTestingState extends State<UnityTestingWrapper> {
             children: <Widget>[
               UnityWidget(
                 onUnityCreated: onUnityCreated,
+                fullscreen: true,
+                borderRadius: BorderRadius.circular(10),
               ),
-              /* Positioned(
+              Positioned(
                 bottom: 20,
                 left: 20,
-                right: 20,
-                child: Card(
-                  elevation: 0,
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20),
-                        child: Text("Rotation speed:"),
-                      ),
-                      Slider(
-                        onChanged: (value) {
-                          setState(() {
-                            _sliderValue = value;
-                          });
-                          setRotationSpeed(value.toString());
-                        },
-                        value: _sliderValue,
-                        min: 0,
-                        max: 20,
-                      ),
-                    ],
-                  ),
-                ),
-              ), */
+                width: 30,
+                child: TextButton(
+                    onPressed: goToMenu,
+                    child: Text('+')),
+              ),
             ],
           ),
         ),
@@ -72,6 +56,12 @@ class UnityTestingState extends State<UnityTestingWrapper> {
 
   void onUnityCreated(controller) {
     this._unityWidgetController = controller;
+  }
+
+  void goToMenu() async {
+    _unityWidgetController.unload();
+
+    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => MyApp()));
   }
 
   void setRotationSpeed(String speed) {

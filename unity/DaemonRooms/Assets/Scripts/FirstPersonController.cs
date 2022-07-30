@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FirstPersonController : MonoBehaviour
@@ -46,21 +44,23 @@ public class FirstPersonController : MonoBehaviour
         GetTouchInput();
 
 
-        if (rightFingerId != -1) {
+        if (rightFingerId != -1)
+        {
             // Ony look around if the right finger is being tracked
-            Debug.Log("Rotating");
+            // Debug.Log("Rotating");
             LookAround();
         }
 
         if (leftFingerId != -1)
         {
             // Ony move if the left finger is being tracked
-            Debug.Log("Moving");
+            // Debug.Log("Moving");
             Move();
         }
     }
 
-    void GetTouchInput() {
+    void GetTouchInput()
+    {
         // Iterate through all the detected touches
         for (int i = 0; i < Input.touchCount; i++)
         {
@@ -111,7 +111,8 @@ public class FirstPersonController : MonoBehaviour
                     {
                         lookInput = t.deltaPosition * cameraSensitivity * Time.deltaTime;
                     }
-                    else if (t.fingerId == leftFingerId) {
+                    else if (t.fingerId == leftFingerId)
+                    {
 
                         // calculating the position delta from the start position
                         moveInput = t.position - moveTouchStartPosition;
@@ -129,7 +130,8 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
-    void LookAround() {
+    void LookAround()
+    {
 
         // vertical (pitch) rotation
         cameraPitch = Mathf.Clamp(cameraPitch - lookInput.y, -90f, 90f);
@@ -139,7 +141,8 @@ public class FirstPersonController : MonoBehaviour
         transform.Rotate(transform.up, lookInput.x);
     }
 
-    void Move() {
+    void Move()
+    {
 
         // Don't move if the touch delta is shorter than the designated dead zone
         if (moveInput.sqrMagnitude <= moveInputDeadZone) return;
