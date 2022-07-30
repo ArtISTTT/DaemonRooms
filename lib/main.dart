@@ -37,7 +37,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   void onGamePressed() async {
-    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => UnityTestingWrapper() ));
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (BuildContext context) => UnityTestingWrapper()));
   }
 
   @override
@@ -52,26 +53,26 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Row(
         children: <Widget>[
           Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.red,
-                      blurRadius: 10,
-                      spreadRadius: 15,
-                      offset: Offset(0, 7)),
-                ],
-                border: Border(
-                  right: BorderSide(
-                    color: Color.fromARGB(255, 97, 97, 97),
-                    width: borderSize,
-                  ),
-                ),
-                image: DecorationImage(
-                  image: new AssetImage('assets/images/game_1.jpg'),
-                  fit: BoxFit.cover,
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.red,
+                    blurRadius: 10,
+                    spreadRadius: 15,
+                    offset: Offset(0, 7)),
+              ],
+              border: Border(
+                right: BorderSide(
+                  color: Color.fromARGB(255, 97, 97, 97),
+                  width: borderSize,
                 ),
               ),
-              child: new GestureDetector(
+              image: DecorationImage(
+                image: new AssetImage('assets/images/game_1.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: new GestureDetector(
                 onTap: onGamePressed,
                 child: Container(
                   decoration: BoxDecoration(
@@ -104,8 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ])),
                   width: width,
                   height: height,
-                )
-              ),
+                )),
           ),
           Container(
               decoration: BoxDecoration(
@@ -234,4 +234,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
