@@ -48,10 +48,6 @@ var languageOptions = [
 
 class _MyHomePageState extends State<MyHomePage> {
   void onGamePressed() async {
-<<<<<<< HEAD
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (BuildContext context) => UnityTestingWrapper()));
-=======
     print('touch');
     Navigator.of(context).push(MaterialPageRoute(
         builder: (BuildContext context) => UnityTestingWrapper()));
@@ -63,7 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
->>>>>>> 3ba7261238310824fe6a34649be62f61b9280eb6
   }
 
   @override
@@ -78,31 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
       drawerEdgeDragWidth: 30,
       body: Stack(
         children: <Widget>[
-<<<<<<< HEAD
-          Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.red,
-                    blurRadius: 10,
-                    spreadRadius: 15,
-                    offset: Offset(0, 7)),
-              ],
-              border: Border(
-                right: BorderSide(
-                  color: Color.fromARGB(255, 97, 97, 97),
-                  width: borderSize,
-                ),
-              ),
-              image: DecorationImage(
-                image: new AssetImage('assets/images/game_1.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: new GestureDetector(
-                onTap: onGamePressed,
-                child: Container(
-=======
           new Row(
             children: <Widget>[
               Container(
@@ -134,7 +104,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     )),
               ),
               Container(
->>>>>>> 3ba7261238310824fe6a34649be62f61b9280eb6
                   decoration: BoxDecoration(
                       border: Border(
                         right: BorderSide(
@@ -164,26 +133,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                       ],
-<<<<<<< HEAD
-                      gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Colors.red,
-                            Colors.red,
-                            Colors.red,
-                            Colors.red,
-                          ],
-                          stops: [
-                            0.1,
-                            0.3,
-                            0.8,
-                            1
-                          ])),
-                  width: width,
-                  height: height,
-                )),
-=======
                     ),
                   )),
               Container(
@@ -277,7 +226,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   )),
             ],
->>>>>>> 3ba7261238310824fe6a34649be62f61b9280eb6
           ),
           new Positioned(
             left: 0,
